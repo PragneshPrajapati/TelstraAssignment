@@ -3,9 +3,12 @@ package com.infosys.telstraassignment.ui
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.contrib.RecyclerViewActions
+import androidx.test.espresso.intent.Intents.intended
+import androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent
+import androidx.test.espresso.intent.rule.IntentsTestRule
 import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.RootMatchers
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
@@ -29,6 +32,17 @@ class CountryDetailsActivityTest : TestCase() {
     var activityRule: ActivityTestRule<CountryDetailsActivity> =
         ActivityTestRule(CountryDetailsActivity::class.java)
 
+    @get:Rule
+    val mainActivityRule = IntentsTestRule(CountryDetailsActivity::class.java)
+
+    @Test
+    fun launchActivityTest() {
+        onView(withId(R.id.vParent))
+            .perform(click())
+
+        intended(hasComponent(CountryDetailsActivity::class.java.name))
+    }
+
     @Test
     @Throws(InterruptedException::class)
     fun testVisibilityProgressBar() {
@@ -46,7 +60,7 @@ class CountryDetailsActivityTest : TestCase() {
     @Test
     @Throws(InterruptedException::class)
     fun testVisibilityRecyclerView() {
-        Thread.sleep(1000)
+        Thread.sleep(2000)
         onView(withId(R.id.rvCountryDetails))
             .inRoot(
                 RootMatchers.withDecorView(
@@ -92,7 +106,7 @@ class CountryDetailsActivityTest : TestCase() {
             .perform(
                 RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
                     0,
-                    ViewActions.click()
+                    click()
                 )
             )
     }
