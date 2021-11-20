@@ -22,7 +22,6 @@ class CountryRemoteDataSource @Inject constructor(private val retrofit: Retrofit
         defaultErrorMessage: String
     ): Result<T> {
         return try {
-            println("I'm working in thread ${Thread.currentThread().name}")
             val result = request.invoke()
             if (result.isSuccessful) {
                 return Result.success(result.body())

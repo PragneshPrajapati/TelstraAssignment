@@ -12,3 +12,9 @@ data class Country(
     val title: String?,
     val rows: List<CountryDetails>
 )
+
+data class CountryDetails(
+    val title: String?,
+    val description: String?,
+    val imageHref: String?
+)
