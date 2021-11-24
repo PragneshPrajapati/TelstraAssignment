@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/countryDetailsFragment">
+    <fragment
+        android:id="@+id/countryDetailsFragment"
+        android:name="com.infosys.telstraassignment.ui.CountryDetailsFragment"
+        tools:layout="@layout/fragment_country_details" />
+</navigation>

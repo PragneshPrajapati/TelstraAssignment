@@ -3,4 +3,7 @@
     <string name="image_content_desc">Image related to the content desplayed</string>
     <string name="error_msg_api">Unknown Error</string>
     <string name="network_error_msg">Please check your internet connection or try again later</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="action_btn_dismiss">DISMISS</string>
 </resources>
